@@ -1,0 +1,179 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+            appBar: AppBar(
+                title: Text('EDIT PROFILE')
+            ),
+            body: Center(
+                child: HomeScreen()
+            )
+        )
+    );
+  } }
+
+class HomeScreen extends StatefulWidget {
+
+  HomeScreenState createState() => HomeScreenState();
+
+}
+
+class HomeScreenState extends State<HomeScreen>{
+
+  final name = TextEditingController();
+  final phoneNumber = TextEditingController();
+  final teacheremail = TextEditingController();
+  final degree = TextEditingController();
+  final post = TextEditingController();
+
+  getItemAndNavigate(BuildContext context){
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => SecondScreen(
+              nameHolder : name.text,
+              emailHolder : teacheremail.text,
+              numberHolder : phoneNumber.text,
+              degreeHolder : degree.text,
+              postHolder : post.text,
+            ))
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Center(
+          child: Column(
+            children: <Widget>[
+
+              Container(
+                  width: 280,
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: name,
+                    autocorrect: true,
+                    decoration: InputDecoration(hintText: 'Enter Name Here'),
+                  )
+              ),
+
+              Container(
+                  width: 280,
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: teacheremail,
+                    autocorrect: true,
+                    decoration: InputDecoration(hintText: 'Enter Email Here'),
+                  )
+              ),
+
+              Container(
+                  width: 280,
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: phoneNumber,
+                    autocorrect: true,
+                    decoration: InputDecoration(hintText: 'Enter Phone Number Here'),
+                  )
+              ),
+
+              Container(
+                  width: 280,
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: degree,
+                    autocorrect: true,
+                    decoration: InputDecoration(hintText: 'Enter Degree Here'),
+                  )
+              ),
+
+              Container(
+                  width: 280,
+                  padding: EdgeInsets.all(10.0),
+                  child: TextField(
+                    controller: post,
+                    autocorrect: true,
+                    decoration: InputDecoration(hintText: 'Enter Post Here'),
+                  )
+              ),
+
+              RaisedButton(
+                onPressed:()=> getItemAndNavigate(context),
+                color: Color(0xffFF1744),
+                textColor: Colors.white,
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                child: Text('SHOW PROFILE'),
+              ),
+
+            ],
+          ),
+        ));
+  }
+}
+
+class SecondScreen extends StatelessWidget {
+
+  final  nameHolder ;
+  final  emailHolder ;
+  final  numberHolder ;
+  final  degreeHolder ;
+  final  postHolder ;
+
+
+  SecondScreen({
+    Key key, @required this.nameHolder,
+    this.emailHolder,
+    this.numberHolder,this.degreeHolder,this.postHolder}) : super(key: key);
+
+  goBack(BuildContext context){
+    Navigator.pop(context);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("BASIC PROFILE"),
+        ),
+        body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Center(child:
+              Text('Teacher Name = ' + nameHolder,
+                style: TextStyle(fontSize: 22),
+                textAlign: TextAlign.center,)),
+
+              Center(child:
+              Text('Teacher email = ' + emailHolder,
+                style: TextStyle(fontSize: 22),
+                textAlign: TextAlign.center,)),
+
+              Center(child:
+              Text('Teacher Phone Number = ' + numberHolder,
+                style: TextStyle(fontSize: 22),
+                textAlign: TextAlign.center,)),
+
+              Center(child:
+              Text('Teacher Degree = ' + degreeHolder,
+                style: TextStyle(fontSize: 22),
+                textAlign: TextAlign.center,)),
+
+              Center(child:
+              Text('Teacher post = ' + postHolder,
+                style: TextStyle(fontSize: 22),
+                textAlign: TextAlign.center,)),
+
+              RaisedButton(
+                onPressed: ()=> goBack(context),
+                color: Colors.lightBlue,
+                textColor: Colors.white,
+                child: Text('EDIT PROFILE'),
+              )])
+    );
+  }
+}

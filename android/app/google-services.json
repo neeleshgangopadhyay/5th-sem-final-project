@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "110101775751",
+    "project_id": "project-efeb8",
+    "storage_bucket": "project-efeb8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:110101775751:android:c657a2a875fad7a9183f22",
+        "android_client_info": {
+          "package_name": "com.project.proctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "110101775751-kjr1168p05ki5e8ram7ajrd5tbcaqan1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT_sxJzKL53ahDm5pYPWUaU1n8cNdSLUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "110101775751-kjr1168p05ki5e8ram7ajrd5tbcaqan1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "110101775751-7l20etogqs2ct4ccuou739d1ic9ts1u1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.project.proctor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
